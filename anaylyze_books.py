@@ -100,6 +100,7 @@ if __name__ == "__main__":
     tokens = nltk.FreqDist(tokens)
     stemmed_tokens = nltk.FreqDist(stemmed_tokens)
     tagged_tokens = nltk.FreqDist(tagged_tokens)
+    unique_tagged_tokens = list(set([tag for (tag, pos) in tagged_tokens.keys()]))
 
     print("\n\nLemmatization:")
     print(f"\tVocabulary: {len(tokens)} words")
@@ -110,5 +111,5 @@ if __name__ == "__main__":
     print("\tCommon tokens:", stemmed_tokens.most_common(10))
 
     print("\nTagging:")
-    print(f"\tVocabulary: {len(tagged_tokens)} words")
+    print(f"\tVocabulary: {len(unique_tagged_tokens)} words")
     print("\tCommon tokens:", tagged_tokens.most_common(10))
